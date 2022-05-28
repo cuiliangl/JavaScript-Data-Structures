@@ -1,22 +1,27 @@
 const loseloseHashCode = require('./loseloseHashCode')
 const ValuePair = require('./ValuePair')
 
+// 线性探查
 class IndexHashTable {
-  table = []
+  #table = []
+
+  getTable() {
+    return this.#table
+  }
 
   put(key, value) {
-    const { table } = this
+    const table = this.#table
     let position = loseloseHashCode(key)
 
     while (table[position] !== undefined) {
       position++
     }
 
-    this.table[position] = new ValuePair(key, value)
+    this.#table[position] = new ValuePair(key, value)
   }
 
   get(key) {
-    const { table } = this
+    const table = this.#table
     const len = table.length
     let position = loseloseHashCode(key)
 
@@ -33,7 +38,7 @@ class IndexHashTable {
   }
 
   remove(key) {
-    const { table } = this
+    const table = this.#table
     const len = table.length
     let position = loseloseHashCode(key)
 
@@ -60,4 +65,4 @@ console.log(indexHashtable.get('sret'))
 
 indexHashtable.remove('srt')
 
-console.log(indexHashtable.table, indexHashtable.table.length)
+console.log(indexHashtable.getTable(), indexHashtable.getTable().length)

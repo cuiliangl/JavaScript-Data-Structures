@@ -8,61 +8,60 @@ const DoublyLinkedList = (function () {
     }
   }
 
-  let head = null
-  let tail = null
-  let length = 0
-
   class DoublyLinkedList {
+    #head = null
+    #tail = null
+    #length = 0
     size() {
-      return length
+      return this.#length
     }
 
     isEmpty() {
-      return length === 0
+      return this.#length === 0
     }
 
     getHead() {
-      return head
+      return this.#head
     }
 
     getTail() {
-      return tail
+      return this.#tail
     }
 
     append(element) {
       const node = new Node(element)
 
-      if (length === 0) {
-        head = node
-        tail = node
+      if (this.#length === 0) {
+        this.#head = node
+        this.#tail = node
       } else {
-        tail.next = node
-        node.prev = tail
-        tail = node
+        this.#tail.next = node
+        node.prev = this.#tail
+        this.#tail = node
       }
 
-      return ++length
+      return ++this.#length
     }
 
     insert(position, element) {
-      if (position > -1 && position <= length) {
+      if (position > -1 && position <= this.#length) {
         const node = new Node(element)
-        let current = head
+        let current = this.#head
         let index = 0
 
         if (position === 0) {
-          if (!head) {
-            head = node
-            tail = node
+          if (!this.#head) {
+            this.#head = node
+            this.#tail = node
           } else {
             node.next = current
             current.prev = node
-            head = node
+            this.#head = node
           }
-        } else if (position === length) {
-          tail.next = node
-          node.prev = tail
-          tail = node
+        } else if (position === this.#length) {
+          this.#tail.next = node
+          node.prev = this.#tail
+          this.#tail = node
         } else {
           while (index++ < position) {
             current = current.next
@@ -74,7 +73,7 @@ const DoublyLinkedList = (function () {
           current.prev = node
         }
 
-        length++
+        this.#length++
         return true
       }
 
@@ -82,7 +81,7 @@ const DoublyLinkedList = (function () {
     }
 
     indexOf(element) {
-      let current = head
+      let current = this.#head
       let index = -1
 
       while (current) {
@@ -99,20 +98,20 @@ const DoublyLinkedList = (function () {
 
     removeAt(position) {
       // 至少有一个
-      if (position > -1 && position < length) {
-        let current = head
+      if (position > -1 && position < this.#length) {
+        let current = this.#head
         let index = 0
 
         if (position === 0) {
-          head = current.next
-          if (length === 1) {
-            tail = null
+          this.#head = current.next
+          if (this.#length === 1) {
+            this.#tail = null
           } else {
-            head.prev = null
+            this.#head.prev = null
           }
-        } else if (position === length - 1) {
-          tail = tail.prev
-          tail.next = null
+        } else if (position === this.#length - 1) {
+          this.#tail = this.#tail.prev
+          this.#tail.next = null
         } else {
           while (index++ < position) {
             current = current.next
@@ -122,7 +121,7 @@ const DoublyLinkedList = (function () {
           current.next.prev = current.prev
         }
 
-        length--
+        this.#length--
         return current.element
       }
 

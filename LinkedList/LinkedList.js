@@ -7,29 +7,28 @@ const LinkedList = (function () {
     }
   }
 
-  let head = null
-  let length = 0
-
   class LinkedList {
+    #head = null
+    #length = 0
     getHead() {
-      return head
+      return this.#head
     }
 
     size() {
-      return length
+      return this.#length
     }
 
     isEmpty() {
-      return length === 0
+      return this.#length === 0
     }
 
     append(element) {
       const node = new Node(element)
 
-      if (!head) {
-        head = node
+      if (!this.#head) {
+        this.#head = node
       } else {
-        let current = head
+        let current = this.#head
 
         while (current.next) {
           current = current.next
@@ -38,18 +37,18 @@ const LinkedList = (function () {
         current.next = node
       }
 
-      return ++length
+      return ++this.#length
     }
 
     removeAt(position) {
       // 移除第一个元素
-      if (position > -1 && position < length) {
-        let current = head
+      if (position > -1 && position < this.#length) {
+        let current = this.#head
         let previous = null
         let index = 0
 
         if (position === 0) {
-          head = current.next
+          this.#head = current.next
         } else {
           while (index++ < position) {
             previous = current
@@ -59,7 +58,7 @@ const LinkedList = (function () {
           previous.next = current.next
         }
 
-        length--
+        this.#length--
 
         return current.element
       }
@@ -74,13 +73,13 @@ const LinkedList = (function () {
     insert(position, element) {
       const node = new Node(element)
 
-      if (position > -1 && position <= length) {
-        let current = head
+      if (position > -1 && position <= this.#length) {
+        let current = this.#head
         let previous = null
         let index = 0
 
         if (position === 0) {
-          head = node
+          this.#head = node
           node.next = current
         } else {
           while (index++ < position) {
@@ -92,7 +91,7 @@ const LinkedList = (function () {
           node.next = current
         }
 
-        length++
+        this.#length++
 
         return true
       }
@@ -101,7 +100,7 @@ const LinkedList = (function () {
     }
 
     toString() {
-      let current = head
+      let current = this.#head
       let str = ''
 
       while (current) {
@@ -113,7 +112,7 @@ const LinkedList = (function () {
     }
 
     indexOf(element) {
-      let current = head
+      let current = this.#head
       let index = -1
 
       while (current) {

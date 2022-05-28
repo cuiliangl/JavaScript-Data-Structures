@@ -1,3 +1,4 @@
+// 字典
 module.export = Dictionary = (function Dictionary() {
   const weakMap = new WeakMap()
 
