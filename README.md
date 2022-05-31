@@ -19,7 +19,15 @@ Data Structures + Algorithms = Programs
    1. 分离链接
    2. 线性探查
 8. Tree
-9. Graphs
+   1. BST
+   2. 红黑树
+9.  Graphs
 
 ## 算法
+
+1. 递归
+2. 动态规划（DP）
+3. 贪心
+4. 回溯
+5. 滑动窗口
 
