@@ -15,8 +15,8 @@ var reverseArr = function (head) {
   return head
 }
 
-// console.log(reverseArr(arr))
-// console.log(reverseArr([1, 2]))
+console.log(reverseArr(arr))
+console.log(reverseArr([1, 2]))
 
 /**
  * 反转链表
