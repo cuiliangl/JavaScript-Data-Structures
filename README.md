@@ -2,6 +2,8 @@
 
 学习 JavaScript 数据结构与算法（第 2 版）示例代码。
 
+每种数据结构下的lc目录为Leetcode上对应的数据结构的题。
+
 Data Structures + Algorithms = Programs
 
 ## 数据结构
@@ -22,12 +24,19 @@ Data Structures + Algorithms = Programs
    1. BST
    2. 红黑树
 9.  Graphs
+10. Trie
 
 ## 算法
 
-1. 递归
-2. 动态规划（DP）
-3. 贪心
-4. 回溯
-5. 滑动窗口
+1. 递归 (Recursion)
+2. 二分查找 (Bianry Search)
+3. 动态规划（Dynamic Programming, DP）
+4. 分治法 (Divide & Conquer)
+5. 贪心 (Greedy)
+6. 回溯 (Backtracing)
+7. 滑动窗口 (Sliding Window)
+8. 双指针 (Two Pointers)
+9. 排序 (Sorting)
+10. 深度优先搜索 (DFS)
+11. 广度优先搜索 (BFS)
 
