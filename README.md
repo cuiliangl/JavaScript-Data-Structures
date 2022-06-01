@@ -29,14 +29,14 @@ Data Structures + Algorithms = Programs
 ## 算法
 
 1. 递归 (Recursion)
-2. 二分查找 (Bianry Search)
+2. 分治法 (Divide & Conquer)
 3. 动态规划（Dynamic Programming, DP）
-4. 分治法 (Divide & Conquer)
-5. 贪心 (Greedy)
-6. 回溯 (Backtracing)
+4. 二分查找 (Bianry Search)
+5. 排序 (Sorting)
+6. 双指针 (Two Pointers)
 7. 滑动窗口 (Sliding Window)
-8. 双指针 (Two Pointers)
-9. 排序 (Sorting)
+8. 贪心 (Greedy)
+9. 回溯 (Backtracing)
 10. 深度优先搜索 (DFS)
 11. 广度优先搜索 (BFS)
 
