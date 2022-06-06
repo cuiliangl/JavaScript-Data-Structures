@@ -26,7 +26,7 @@ console.log(removeElement([0, 1, 2, 2, 3, 0, 4, 2], 0))
 
 // 优化
 function removeElement1(nums, val) {
-  if (nums == undefined || nums.length === 0) return 0
+  if (nums == null || nums.length === 0) return 0
 
   let i = 0
   let j = nums.length - 1
@@ -35,6 +35,7 @@ function removeElement1(nums, val) {
     if (nums[i] === val) {
       nums[i] = nums[j--]
     } else {
+      // 不相等加1，所以最后数组的长度就是i
       i++
     }
   }
@@ -46,14 +47,16 @@ console.log(removeElement1([3, 2, 2, 3, 1], 3))
 console.log(removeElement1([0, 1, 2, 2, 3, 0, 4, 2], 0))
 
 // LC 答案：和移除 0 一个原理
-function removeElement2(nums, val) {
-  const n = nums.length
-  let left = 0
-  for (let right = 0; right < n; right++) {
-    if (nums[right] !== val) {
-      nums[left] = nums[right]
-      left++
+function removeElement3(nums, val) {
+  let i = 0
+  const len = nums.length
+
+  for (let j = 0; j < len; j++) {
+    if (nums[j] !== val) {
+      nums[i] = nums[j]
+      i++
     }
   }
-  return left
+
+  return i
 }

@@ -25,10 +25,41 @@
     输出：true
  */
 
-function isValid(str) {}
+function isValid(str) {
+  const len = str.length
+
+  if (len % 2 === 1) return false
+
+  const left = '([{'
+  const right = ')]}'
+  const hash = {
+    ')': '(',
+    ']': '[',
+    '}': '{'
+  }
+  const arr = []
+  let i = 0
+
+  while (i < len) {
+    const temp = str[i++]
+    const val = arr[arr.length - 1]
+
+    if (left.includes(temp)) {
+      arr.push(temp)
+    } else if (right.includes(temp)) {
+      if (arr.length === 0 || val !== hash[temp]) {
+        return false
+      }
+      arr.pop()
+    }
+  }
+
+  return arr.length === 0
+}
 
 console.log(isValid('()'))
-// console.log(isValid('()[]{}'))
-// console.log(isValid('(]'))
-// console.log(isValid('([)]'))
-// console.log(isValid('{[]}'))
+console.log(isValid('()[]{}'))
+console.log(isValid('(]'))
+console.log(isValid('([)]'))
+console.log(isValid('{[]}'))
+console.log(isValid('(])'))
