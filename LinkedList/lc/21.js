@@ -162,3 +162,22 @@ function mergeTwoLists(l1, l2) {
 // console.log(mergeTwoLists(linkedList3, linkedList2).next)
 // console.log(mergeTwoLists(linkedList3, linkedList2).next.next)
 // console.log(mergeTwoLists(linkedList3, linkedList2).next.next.next)
+
+/****** 优化递归法  YYDS */
+
+function mergeTwoListsPlus(l1, l2) {
+  // 终止条件
+  if (!(l1 && l2)) {
+    return l1 || l2
+  }
+
+  if (l1.val <= l2.val) {
+    l1.next = mergeLinkedListPlus(l1.next, l2)
+    return l1
+  } else {
+    l2.next = mergeLinkedListPlus(l1, l2.next)
+    return l2
+  }
+}
+
+console.log(mergeTwoListsPlus(linkedList3, linkedList2).next.next.next)
