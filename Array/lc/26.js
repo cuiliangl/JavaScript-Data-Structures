@@ -33,9 +33,7 @@ console.log(removeDuplicates(nums))
     思路：
 
     因为题目是要求返回去重后数组的长度，并不关心去重后的数组，所以找出重复出现的个数即可。
-
     由于数组是有序排列的，定义一个变量 count = 0; 从位置 1 开始遍历，判断当前元素是否和上一个元素相等，如果相等 count+1，反之跳过。
-
     最后 count 就是所有重复元素出现的个数。那么不重复元素组成的数组就是 数组长度 - count
  */
 function removeDuplicates1(nums) {
