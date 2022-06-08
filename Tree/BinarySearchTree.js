@@ -27,14 +27,6 @@ function insertNode(node, newNode) {
     }
   }
 }
-// 中序遍历辅助函数
-function inOrderTraverseNode(node, callback) {
-  if (node !== null) {
-    inOrderTraverseNode(node.left, callback)
-    callback(node.key)
-    inOrderTraverseNode(node.right, callback)
-  }
-}
 
 // 先序遍历辅助函数
 function preOrderTraverseNode(node, callback) {
@@ -42,6 +34,15 @@ function preOrderTraverseNode(node, callback) {
     callback(node.key)
     preOrderTraverseNode(node.left, callback)
     preOrderTraverseNode(node.right, callback)
+  }
+}
+
+// 中序遍历辅助函数
+function inOrderTraverseNode(node, callback) {
+  if (node !== null) {
+    inOrderTraverseNode(node.left, callback)
+    callback(node.key)
+    inOrderTraverseNode(node.right, callback)
   }
 }
 
@@ -146,21 +147,21 @@ class BinarySearchTree {
   }
 
   /**
-   * 中序遍历：以上行顺序(即：从小到大)访问BST所有节点的遍历方式
-   * 应用：对树进行排序操作
-   * @param {*} callback
-   */
-  inOrderTraverse(callback) {
-    inOrderTraverseNode(this.#root, callback)
-  }
-
-  /**
    * 先序遍历：以优先于后代节点的顺序访问每个节点的遍历方式。先访问节点本身，然后左子节点，最后右子节点
    * 应用：打印结构化的文档
    * @param {*} callback
    */
   preOrderTraverse(callback) {
     preOrderTraverseNode(this.#root, callback)
+  }
+
+  /**
+   * 中序遍历：以上行顺序(即：从小到大)访问BST所有节点的遍历方式
+   * 应用：对树进行排序操作
+   * @param {*} callback
+   */
+  inOrderTraverse(callback) {
+    inOrderTraverseNode(this.#root, callback)
   }
 
   /**

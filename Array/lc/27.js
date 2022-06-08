@@ -47,6 +47,7 @@ console.log(removeElement1([3, 2, 2, 3, 1], 3))
 console.log(removeElement1([0, 1, 2, 2, 3, 0, 4, 2], 0))
 
 // LC 答案：和移除 0 一个原理
+// 思路：快慢指针
 function removeElement3(nums, val) {
   let i = 0
   const len = nums.length
